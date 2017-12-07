@@ -13,11 +13,11 @@
 
 //Lets the computer select a random letter from the available choices
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
+   console.log(computerGuess);
 
     var updateGuessesLeft = function() {
   // Here we are grabbing the HTML element and setting it equal to the guessesLeft. 
-  document.getElementById('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
+  document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
 };
 
 var updateLetterToGuess = function() {
@@ -25,7 +25,7 @@ var updateLetterToGuess = function() {
 };
 var updateGuessesSoFar = function() {
   // Here we take the guesses the user has tried -- then display it as letters separated by commas. 
-  document.getElementById('#let').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
+  document.querySelector('#let').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
 };
 // Function will be called when we reset everything
 var reset = function() {
@@ -53,14 +53,14 @@ document.onkeyup = function(event) {
         if (guessesLeft > 0){
             if (userGuess == letterToGuess){
                 wins++;
-                document.getElementById('#wins').innerHTML = "Wins: " + wins;
+                document.querySelector('#wins').innerHTML = "Wins: " + wins;
                 alert("Yes, you are psychic!");
                 reset();
             }
         }else if(guessesLeft == 0){
             // Then we will lose and we'll update the html to display the loss 
             losses++;
-            document.getElementById('#losses').innerHTML = "Losses: " + losses;
+            document.querySelector('#losses').innerHTML = "Losses: " + losses;
             alert("Sorry, you're not psychic, maybe try again?");
             // Then we'll call the reset. 
             reset();
